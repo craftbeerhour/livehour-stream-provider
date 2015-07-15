@@ -1,0 +1,22 @@
+{
+  "name": "livehour-stream-provider",
+  "version": "1.0.0",
+  "description": "realtime twitter stream provider",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/craftbeerhour/livehour-stream-provider.git"
+  },
+  "author": "tomwilderspin@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/craftbeerhour/livehour-stream-provider/issues"
+  },
+  "homepage": "https://github.com/craftbeerhour/livehour-stream-provider",
+  "dependencies": {
+    "twitter": "^1.2.5"
+  }
+}
