@@ -49,11 +49,6 @@ function checkStreamState(kinesis) {
      return checkStream; 
 }
 
-function sendData(kinesis, streamName) {
-    return function(data) {
-        
-    };
-}
 
 exports.provider = function(connDetails) {
     var getClient = newKinesisConnection(AWS),
