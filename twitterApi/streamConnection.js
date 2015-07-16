@@ -12,14 +12,14 @@ function newTwitterClient(Twitter) {
 }
 
 function newStream(client) {
-    return function(keyword) {
+    return function(keyword, outputCallback) {
         client.stream(
             'statuses/filter',
             {track: keyword},
             function(stream) {
                 stream.on('data', function(data){
                     if(data.text){
-                        console.log(data.text);
+                        outputCallback(data);
                     }
                 });
                 

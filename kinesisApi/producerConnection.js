@@ -34,7 +34,7 @@ function checkStreamState(kinesis) {
                  }
                  
                  if (data.StreamDescription.StreamStatus === 'ACTIVE') {
-                     outputCallback(); //not sure what flag to send here ??
+                     outputCallback(null, kinesis);
                  } else {
                      //retry after 5 secs
                      setTimeout(
@@ -47,6 +47,12 @@ function checkStreamState(kinesis) {
              });
      };
      return checkStream; 
+}
+
+function sendData(kinesis, streamName) {
+    return function(data) {
+        
+    };
 }
 
 exports.provider = function(connDetails) {
