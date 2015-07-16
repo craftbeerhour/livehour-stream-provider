@@ -24,7 +24,7 @@ function newStream(client) {
                 });
                 
                 stream.on('error', function(error){
-                    console.log('borken stream: ', error);
+                    console.log('broken stream: ', error);
                 });
                 
                 stream.on('end', function(response){
