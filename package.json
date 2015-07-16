@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/craftbeerhour/livehour-stream-provider",
   "dependencies": {
+    "aws-kcl": "^0.5.0",
     "twitter": "^1.2.5"
   }
 }
