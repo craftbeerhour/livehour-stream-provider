@@ -10,7 +10,7 @@ var   Twitter = require('twitter'),
             access_token_secret: process.env.TWITTER_ACCESS_SECRET
       },
       newStream = streamConnection.stream(connectionDetails),
-      getKinesisStream = producerConnection.provider({region: 'some-region'})
+      getKinesisStream = producerConnection.provider({region: 'eu-west-1'})
 
 
 
