@@ -1,9 +1,11 @@
 
 function writeData(kinesis, streamName) {
     return function(data) {
+        console.log('some text: ',data.text);
+        
         kinesis.putRecord(
             {
-                Data: data,
+                Data: JSON.stringify(data),
                 PartitionKey: 'pk-1', //todo workout what to set this as
                 StreamName: streamName
             },

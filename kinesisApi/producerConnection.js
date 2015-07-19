@@ -1,7 +1,4 @@
 var AWS = require('aws-sdk');
- 
-var kinesis = new AWS.Kinesis({region : 'us-west-2'});
-
 
 function newKinesisConnection(AWS) {
     return function(region) {
@@ -34,6 +31,7 @@ function checkStreamState(kinesis) {
                  }
                  
                  if (data.StreamDescription.StreamStatus === 'ACTIVE') {
+                     
                      outputCallback(null, kinesis);
                  } else {
                      //retry after 5 secs
@@ -54,7 +52,7 @@ exports.provider = function(connDetails) {
     var getClient = newKinesisConnection(AWS),
         client    = getClient(connDetails.region),
         checkStream = checkStreamState(client),
-        getStream = newStream(client,checkStreamState);
+        getStream = newStream(client,checkStream);
         
         return getStream;
 }

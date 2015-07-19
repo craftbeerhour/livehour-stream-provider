@@ -19,8 +19,9 @@ getKinesisStream('testStream', 1, function(error, stream){
             console.log(error);
             return;
       }
+      console.log('connected!');
       newStream(keyword, sendData.writeToStream(stream, 'testStream'));
-})
+});
 
 
 
