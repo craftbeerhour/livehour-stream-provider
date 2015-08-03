@@ -1,7 +1,5 @@
 var   Twitter = require('twitter'),
       streamConnection = require('./twitterApi/streamConnection.js'),
-      sendData = require("./kinesisApi/sendData.js"),
-      producerConnection = require("./kinesisApi/producerConnection.js"),
       keyword = '#craftbeerhour',
       connectionDetails = {
             consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -10,18 +8,17 @@ var   Twitter = require('twitter'),
             access_token_secret: process.env.TWITTER_ACCESS_SECRET
       },
       newStream = streamConnection.stream(connectionDetails),
-      getKinesisStream = producerConnection.provider({region: 'eu-west-1'})
+      firebaseProvider = require("./firebaseApi/providerConnection.js"),
+      newFirebaseConnection = firebaseProvider.connection(process.env.FIREBASE_APP_URL);
+      
+      newStream(keyword, function(tweet){
+            var tweetRepository = newFirebaseConnection.child('tweets');
+            tweetRepository.push(tweet);
+      });
 
 
 
-getKinesisStream('testStream', 1, function(error, stream){
-      if (error) {
-            console.log(error);
-            return;
-      }
-      console.log('connected!');
-      newStream(keyword, sendData.writeToStream(stream, 'testStream'));
-});
+
 
 
 

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/craftbeerhour/livehour-stream-provider",
   "dependencies": {
     "aws-sdk": "^2.1.39",
+    "firebase": "^2.2.9",
     "twitter": "^1.2.5"
   }
 }
